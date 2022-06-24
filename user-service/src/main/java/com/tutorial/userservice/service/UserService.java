@@ -34,11 +34,6 @@ public class UserService {
         return userNew;
     }
 
-    public List<Bike> getBikes(int userId) {
-        List<Bike> bikes = restTemplate.getForObject("http://localhost:8003/bike/byuser/" + userId, List.class);
-        return bikes;
-    }
-
     public Bike saveBike(int userId, Bike bike) {
         bike.setUserId(userId);
         Bike bikeNew = bikeFeignClient.save(bike);
